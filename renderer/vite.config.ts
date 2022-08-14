@@ -6,11 +6,11 @@ import vueI18n from '@intlify/vite-plugin-vue-i18n'
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    target: 'esnext',
-    assetsInlineLimit: 0
+    target: 'es2020',
+    assetsInlineLimit: 0,
   },
   optimizeDeps: {
-    esbuildOptions: { target: 'esnext' }
+    esbuildOptions: { target: 'es2020' }
   },
   plugins: [
     vue({

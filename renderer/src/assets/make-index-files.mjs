@@ -40,7 +40,7 @@ for (const lang of LANGUAGES) {
       indexData[i * 2 + 1] = lineStarts.statsByRef[i].start
     }
     fs.writeFileSync(
-      path.join('./public/data', lang, 'stats-ref.index.bin'),
+      path.join('./public/data', lang, 'stats-ref.bin'),
       indexData
     )
   }
@@ -53,7 +53,7 @@ for (const lang of LANGUAGES) {
       indexData[i * 2 + 1] = lineStarts.matchers[i].start
     }
     fs.writeFileSync(
-      path.join('./public/data', lang, 'stats-matcher.index.bin'),
+      path.join('./public/data', lang, 'stats-matcher.bin'),
       indexData
     )
   }
@@ -92,7 +92,7 @@ for (const lang of LANGUAGES) {
       indexData[i * 2 + 1] = lineStarts[i].start
     }
     fs.writeFileSync(
-      path.join('./public/data', lang, 'items-name.index.bin'),
+      path.join('./public/data', lang, 'items-name.bin'),
       indexData
     )
   }
@@ -105,7 +105,7 @@ for (const lang of LANGUAGES) {
       indexData[i * 2 + 1] = lineStarts[i].start
     }
     fs.writeFileSync(
-      path.join('./public/data', lang, 'items-ref.index.bin'),
+      path.join('./public/data', lang, 'items-ref.bin'),
       indexData
     )
   }
