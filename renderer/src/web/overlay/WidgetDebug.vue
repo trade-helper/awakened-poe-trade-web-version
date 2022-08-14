@@ -14,8 +14,8 @@ import { parseClipboard } from '@/parser'
 export default defineComponent({
   components: { Widget },
   mounted() {
-    window.addEventListener('paste', (event) => {
-      const clipboard = (event.clipboardData || window.clipboardData).getData('text');
+    document.addEventListener('paste', (event: ClipboardEvent ) => {
+      const clipboard = event.clipboardData?.getData('text') || '';
 
       MainProcess.selfDispatch({
         name: 'MAIN->OVERLAY::price-check',
