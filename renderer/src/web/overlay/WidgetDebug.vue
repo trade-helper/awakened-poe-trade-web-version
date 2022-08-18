@@ -38,6 +38,7 @@ import { defineComponent, shallowRef, inject, computed } from 'vue'
 import { MainProcess } from '@/web/background/IPC'
 import * as Leagues from '@/web/background/Leagues'
 import { AppConfig, updateConfig, saveConfig } from '@/web/Config'
+import type { Config } from '@ipc/types'
 import { parseClipboard } from '@/parser'
 
 import { WidgetManager } from './interfaces'
