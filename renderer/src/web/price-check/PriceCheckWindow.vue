@@ -8,6 +8,18 @@
     <div v-if="!isBrowserShown" class="layout-column shrink-0"
       :style="{ width: `${poeUiWidth}px` }">
     </div>
+    <webview v-if="isBrowserShown" ref="iframeEl"
+      class="pointer-events-auto flex-1"
+      width="100%" height="100%" />
+    <div v-else class="layout-column flex-1 min-w-0">
+      <div class="flex" :class="{
+        'flex-row': clickPosition === 'stash',
+        'flex-row-reverse': clickPosition === 'inventory'
+      }">
+        <related-items v-if="item && !('error' in item)" :item="item" class="pointer-events-auto" />
+        <rate-limiter-state class="pointer-events-auto" />
+      </div>
+    </div>
     <div id="price-window" class="layout-column shrink-0 text-gray-200 pointer-events-auto" style="width: 28.75rem;">
       <app-titlebar @close="closePriceCheck" @click="openLeagueSelection" :title="title">
         <div class="flex">
@@ -48,18 +60,6 @@
             <span class="bg-gray-400 text-gray-900 rounded px-1">{{ overlayKey }}</span>
           </i18n-t>
         </div>
-      </div>
-    </div>
-    <webview v-if="isBrowserShown" ref="iframeEl"
-      class="pointer-events-auto flex-1"
-      width="100%" height="100%" />
-    <div v-else class="layout-column flex-1 min-w-0">
-      <div class="flex" :class="{
-        'flex-row': clickPosition === 'stash',
-        'flex-row-reverse': clickPosition === 'inventory'
-      }">
-        <related-items v-if="item && !('error' in item)" :item="item" class="pointer-events-auto" />
-        <rate-limiter-state class="pointer-events-auto" />
       </div>
     </div>
   </div>
